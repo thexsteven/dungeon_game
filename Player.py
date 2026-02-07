@@ -1,3 +1,5 @@
+import random
+
 # Konstante Werte vom Player
 MAX_HEALTH = 100
 MIN_ATTACK_DAMAGE = 40
@@ -7,7 +9,8 @@ class Player:
   def __init__(self, name, health=MAX_HEALTH):
     self.name = name
     self.health = health
+    self.strength = random.randint(MIN_ATTACK_DAMAGE, MAX_ATTACK_DAMAGE)
 
   def __str__(self):
-    return f"Player {self.name} has {self.health} health."
+    return f"Player {self.name} has {self.health} health and {self.strength} strength."
     
