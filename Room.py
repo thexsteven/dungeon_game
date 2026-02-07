@@ -15,3 +15,11 @@ class Room:
       player.regain_health(health_gained)
       print(f"{player.name} defeated the {self.monster.name} in room {self.name} \n")
       print(f"{player.name} gained {health_gained} health.")
+      player.get_status()
+      return True
+    elif player.health > 0:
+      print(f"{player.name} is still alive. \n")
+      return False
+    else:
+      print(f"{player.name} failed to defeat the {self.monster.name} in room {self.name}.")
+      return False
