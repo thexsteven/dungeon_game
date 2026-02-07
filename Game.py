@@ -1,7 +1,7 @@
-import Player from Player
-import Monster from Monster
-import Room from Room
-import RoomManager from RoomManager
+from Player import Player 
+from Monster import Monster 
+from Room import Room
+from RoomManager import RoomManager 
 
 MIN_ROOMS = 1
 
@@ -24,8 +24,8 @@ class Game:
       except ValueError:
         print("Please enter a valid number")
 
-  self.player = Player(player_name)
-  self.num_rooms = num_rooms
+    self.player = Player(player_name)
+    self.num_rooms = num_rooms
 
   def run_game(self):
     rooms = []
