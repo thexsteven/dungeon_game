@@ -13,3 +13,5 @@ class Room:
     if not self.monster.is_alive():
       health_gained = int(damage_dealt/2) 
       player.regain_health(health_gained)
+      print(f"{player.name} defeated the {self.monster.name} in room {self.name} \n")
+      print(f"{player.name} gained {health_gained} health.")
