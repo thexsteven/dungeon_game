@@ -27,3 +27,6 @@ class Player:
     self.health += health_regain
     if self.health > MAX_HEALTH:
       self.health = MAX_HEALTH
+
+  def get_status(self):
+    return f"Player {self.name}, Health: {self.health}"
