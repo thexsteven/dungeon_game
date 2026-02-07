@@ -1,3 +1,8 @@
+import Player from Player
+import Monster from Monster
+import Room from Room
+import RoomManager from RoomManager
+
 MIN_ROOMS = 1
 
 class Game:
@@ -19,4 +24,16 @@ class Game:
       except ValueError:
         print("Please enter a valid number")
 
-  
+  self.player = Player(player_name)
+  self.num_rooms = num_rooms
+
+  def run_game(self):
+    rooms = []
+    for i in range(self.num_rooms):
+      monster_name = input(f"Enter the name of monster for room {i+1}: ")
+      monster = Monster(monster_name)
+      room_name = f"Room_{i+1}"
+      room = Room(room_name, monster)
+      rooms.append(room)
+
+    self.RoomManager = RoomManager(rooms)
