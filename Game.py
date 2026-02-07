@@ -56,4 +56,4 @@ class Game:
     if self.player.health <= 0:
       print(f"{self.player.name} has been defeated. Game is over!")
     elif self.RoomManager.is_game_over():
-      print(f"Congratulations {self.player.name}! You've defeated all monsters and won the Dungeon Game!")
+      print(f"Congratulations {self.player.name}! You've defeated all monsters and won the Dungeon Game :)")

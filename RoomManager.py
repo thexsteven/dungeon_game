@@ -15,7 +15,6 @@ class RoomManager:
       self.current_room_index += 1
       print(f"\n Moved to room {self.current_room_index + 1}: {self.get_current_room().name}")
     else:
-      print("Congratulations! You won the Dungeon game :)")
       self.game_over = True # Hier war der room 3 Fehler
 
   def is_game_over(self):
