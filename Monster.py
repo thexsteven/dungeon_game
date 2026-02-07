@@ -19,7 +19,7 @@ class Monster:
     self.health -= amount
     if self.health < 0:
       self.health = 0
-    print(f"{self.name} took {self.take_damage} damage and now has {self.health} health.")
+    print(f"{self.name} took {amount} damage and now has {self.health} health.")
 
   def is_alive(self):
     return self.health > 0

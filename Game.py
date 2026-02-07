@@ -47,11 +47,13 @@ class Game:
       if action == "f":
         if current_room.fight_monster(self.player):
           self.RoomManager.move_to_next_room()
+      elif action == "e":
+        current_room.escape_room(self.player)
         print(" \n")
       else:
         print("Invalid action! Please choose 'f' to fight or 'e' to escape.")
 
     if self.player.health <= 0:
       print(f"{self.player.name} has been defeated. Game is over!")
-    elif self.dungeon.is_game_over():
+    elif self.RoomManager.is_game_over():
       print(f"Congratulations {self.player.name}! You've defeated all monsters and won the Dungeon Game!")
