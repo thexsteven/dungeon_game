@@ -24,31 +24,34 @@ python -m unittest discover -s . -p "test_*.py" -v
 
 ## Projektstruktur
 
-[**main.py**](http://main.py)
+[**main.py**](main.py)
 
 Startpunkt des Programms. Hier wird das Spiel gestartet und die Wiederholungsschleife läuft.
 
-[**Game.py**](http://Game.py)
+[**Game.py**](Game.py)
 
 Steuert den Spielablauf. Fragt Eingaben ab und koordiniert Player und RoomManager.
 
-[**Player.py**](http://Player.py)
+[**Player.py**](Player.py)
 
 Die Spieler-Klasse mit Health, Strength und Methoden wie attack(), take_damage(), heal().
 
-[**Monster.py**](http://Monster.py)
+[**Monster.py**](Monster.py)
 
 Die Monster-Klasse. Jedes Monster hat Health, Strength und kann angreifen.
 
-[**RoomManager.py**](http://RoomManager.py)
+[**RoomManager.py**](RoomManager.py)
 
 Verwaltet alle Räume und prüft ob das Spiel vorbei ist.
 
-[**Room.py**](http://Room.py)
+[**Room.py**](Room.py)
 
 Ein einzelner Raum mit einem Monster. Hier passiert der Kampf oder die Flucht.
 
-**test_[player.py](http://player.py), test_[roommanager.py](http://roommanager.py)**
+**tests**
+
+- [TestRoomManager.py](TestRoomManager.py)
+- [TestPlayer.py](TestPlayer.py)
 
 Unit Tests für Player und RoomManager. Testen Initialisierung, Grenzwerte und Methoden.
 
