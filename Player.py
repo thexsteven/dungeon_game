@@ -9,7 +9,6 @@ class Player:
   def __init__(self, name, health=MAX_HEALTH):
     self.name = name
     self.health = health
-    self.strength = random.randint(MIN_ATTACK_DAMAGE, MAX_ATTACK_DAMAGE)
 
   def __str__(self):
     return f"Player {self.name} has {self.health} health and {self.strength} strength."
@@ -18,3 +17,8 @@ class Player:
     self.health -= damage
     if self.health < 0:
       self.health = 0
+
+  # Zufälligen Wert für Attacken des Players
+  def attack(self):
+    random_attack = random.randint(MIN_ATTACK_DAMAGE, MAX_ATTACK_DAMAGE)
+    return random_attack
