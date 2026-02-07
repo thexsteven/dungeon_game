@@ -11,3 +11,12 @@ class Monster:
     self.name = name
     self.health = random.randint(MIN_MONSTER_HEALTH, MAX_MONSTER_HEALTH)
     self.strength = random.randint(MIN_MONSTER_STRENGTH, MAX_MONSTER_STRENGTH)
+
+  def attack(self):
+    return self.strength
+  
+  def take_damage(self, amount):
+    self.health -= amount
+    if self.health < 0:
+      self.health = 0
+    print(f"{self.name} took {self.take_damage} damage and now has {self.health} health.")
