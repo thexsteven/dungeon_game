@@ -37,3 +37,16 @@ class Game:
       rooms.append(room)
 
     self.RoomManager = RoomManager(rooms)
+
+    while not self.RoomManager.is_game_over() and self.player.health > 0:
+      current_room = self.RoomManager.get_current_room()
+      if current_room is None:
+        break
+      print(current_room.get_status())
+      action = input(f"Do you want to (f)ight the {current_room.monster.name} or (e)scape the room?")
+      if action == "f":
+        if current_room.fight_monster(self.player):
+          self.RoomManager.move_to_next_room()
+        print(" \n")
+      else:
+        print("Invalid action! Please choose 'f' to fight or 'e' to escape.")
