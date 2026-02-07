@@ -14,3 +14,7 @@ class Player:
   def __str__(self):
     return f"Player {self.name} has {self.health} health and {self.strength} strength."
     
+  def take_damage(self, damage)
+    self.health -= damage
+    if self.health < 0:
+      self.health = 0
