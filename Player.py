@@ -7,4 +7,7 @@ class Player:
   def __init__(self, name, health=MAX_HEALTH):
     self.name = name
     self.health = health
+
+  def __str__(self):
+    return f"Player {self.name} has {self.health} health."
     
