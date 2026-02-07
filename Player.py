@@ -11,7 +11,7 @@ class Player:
     self.health = health
 
   def __str__(self):
-    return f"Player {self.name} has {self.health} health and {self.strength} strength."
+    return f"Player {self.name} has {self.health} health."
     
   def take_damage(self, damage):
     self.health -= damage
