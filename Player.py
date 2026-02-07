@@ -13,7 +13,7 @@ class Player:
   def __str__(self):
     return f"Player {self.name} has {self.health} health and {self.strength} strength."
     
-  def take_damage(self, damage)
+  def take_damage(self, damage):
     self.health -= damage
     if self.health < 0:
       self.health = 0
@@ -22,3 +22,8 @@ class Player:
   def attack(self):
     random_attack = random.randint(MIN_ATTACK_DAMAGE, MAX_ATTACK_DAMAGE)
     return random_attack
+  
+  def regain_health(self, health_regain):
+    self.health += health_regain
+    if self.health > MAX_HEALTH:
+      self.health = MAX_HEALTH
