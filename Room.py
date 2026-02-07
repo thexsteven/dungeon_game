@@ -23,3 +23,7 @@ class Room:
     else:
       print(f"{player.name} failed to defeat the {self.monster.name} in room {self.name}.")
       return False
+    
+  def escape_room(self, player):
+    player.take_damage(10)
+    print(f"{player.name} escaped from room {self.name} and took 10 damage. \n")
