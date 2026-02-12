@@ -8,7 +8,7 @@ MIN_ROOMS = 1
 class Game:
   def __init__(self):
     self.player = None
-    self.RoomManager = None
+    self.room_manager = None
 
   def start(self):
     player_name = input("Enter your player's name: ")
@@ -36,17 +36,17 @@ class Game:
       room = Room(room_name, monster)
       rooms.append(room)
 
-    self.RoomManager = RoomManager(rooms)
+    self.room_manager = RoomManager(rooms)
 
-    while not self.RoomManager.is_game_over() and self.player.health > 0:
-      current_room = self.RoomManager.get_current_room()
+    while not self.room_manager.is_game_over() and self.player.health > 0:
+      current_room = self.room_manager.get_current_room()
       if current_room is None:
         break
       print(current_room.get_status())
       action = input(f"Do you want to (f)ight the {current_room.monster.name} or (e)scape the room?")
       if action == "f":
         if current_room.fight_monster(self.player):
-          self.RoomManager.move_to_next_room()
+          self.room_manager.move_to_next_room()
       elif action == "e":
         current_room.escape_room(self.player)
         print(" \n")
@@ -55,5 +55,5 @@ class Game:
 
     if self.player.health <= 0:
       print(f"{self.player.name} has been defeated. Game is over!")
-    elif self.RoomManager.is_game_over():
+    elif self.room_manager.is_game_over():
       print(f"Congratulations {self.player.name}! You've defeated all monsters and won the Dungeon Game :)")

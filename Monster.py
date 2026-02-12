@@ -15,11 +15,11 @@ class Monster:
   def attack(self):
     return self.strength
   
-  def take_damage(self, amount):
-    self.health -= amount
+  def take_damage(self, damage):
+    self.health -= damage
     if self.health < 0:
       self.health = 0
-    print(f"{self.name} took {amount} damage and now has {self.health} health.")
+    print(f"{self.name} took {damage} damage and now has {self.health} health.")
 
   def is_alive(self):
     return self.health > 0
