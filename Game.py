@@ -9,6 +9,7 @@ class Game:
   def __init__(self):
     self.player = None
     self.room_manager = None
+    self.num_rooms = 0
 
   def start(self):
     player_name = input("Enter your player's name: ")
