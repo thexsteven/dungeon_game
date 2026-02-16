@@ -19,7 +19,7 @@ python main.py
 **Tests ausführen:**
 
 ```
-python -m unittest discover -s . -p "test_*.py" -v
+python -m unittest discover -s tests -p "Test*.py" -v
 ```
 
 ## Projektstruktur
@@ -34,7 +34,7 @@ Steuert den Spielablauf. Fragt Eingaben ab und koordiniert Player und RoomManage
 
 [**Player.py**](Player.py)
 
-Die Spieler-Klasse mit Health, Strength und Methoden wie attack(), take_damage(), heal().
+Die Spieler-Klasse mit Health, Strength und Methoden wie attack(), take_damage(), regain_health().
 
 [**Monster.py**](Monster.py)
 
@@ -50,8 +50,8 @@ Ein einzelner Raum mit einem Monster. Hier passiert der Kampf oder die Flucht.
 
 **tests**
 
-- [TestRoomManager.py](TestRoomManager.py)
-- [TestPlayer.py](TestPlayer.py)
+- [tests/TestRoomManager.py](tests/TestRoomManager.py)
+- [tests/TestPlayer.py](tests/TestPlayer.py)
 
 Unit Tests für Player und RoomManager. Testen Initialisierung, Grenzwerte und Methoden.
 
@@ -73,9 +73,9 @@ Beim Fliehen verliert man immer genau 10 Lebenspunkte, egal wie stark das Monste
 
 Die Angriffswerte sind zufällig. Manchmal ist ein Kampf viel leichter oder schwerer, das hängt vom Glück ab.
 
-**Raumanzahl fest:**
+**Interaktiver Spielablauf:**
 
-Die Anzahl der Räume ist im Code festgelegt. Man kann das nicht beim Spielstart ändern.
+Die Anzahl der Räume ist beim Spielstart frei wählbar und wird per Konsoleingabe festgelegt.
 
 ## Technische Hinweise
 
