@@ -44,12 +44,16 @@ class Game:
       if current_room is None:
         break
       print(current_room.get_status())
-      action = input(f"Do you want to (f)ight the {current_room.monster.name} or (e)scape the room?")
+      action = input(
+        f"Do you want to (f)ight the {current_room.monster.name} or (e)scape the room?"
+      ).strip().lower()
       if action == "f":
         if current_room.fight_monster(self.player):
           self.room_manager.move_to_next_room()
       elif action == "e":
         current_room.escape_room(self.player)
+        if self.player.health > 0:
+          self.room_manager.move_to_next_room()
         print()
       else:
         print("Invalid action! Please choose 'f' to fight or 'e' to escape.")
