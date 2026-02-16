@@ -1,12 +1,15 @@
 from Game import Game
 
+YES_ANSWERS = {"y", "yes"}
+NO_ANSWERS = {"n", "no"}
+
 def ask_yes_no(prompt):
     """Fragt den Benutzer und akzeptiert nur y/yes/n/no."""
     while True:
         answer = input(f"{prompt} (y/n): ").strip().lower()
-        if answer in ["y", "yes"]:
+        if answer in YES_ANSWERS:
             return True
-        elif answer in ["n", "no"]:
+        if answer in NO_ANSWERS:
             return False
         print("Please enter 'y' or 'n'.")
 
