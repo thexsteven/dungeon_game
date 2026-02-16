@@ -1,7 +1,7 @@
-from Player import Player 
-from Monster import Monster 
+from Player import Player
+from Monster import Monster
 from Room import Room
-from RoomManager import RoomManager 
+from RoomManager import RoomManager
 
 MIN_ROOMS = 1
 
@@ -18,7 +18,7 @@ class Game:
     while True:
       try:
         num_rooms = int(input("How many rooms do you want to create? "))
-        if num_rooms <= 0:
+        if num_rooms < MIN_ROOMS:
           print("Enter a number bigger than 0.")
           continue
         break
@@ -30,10 +30,10 @@ class Game:
 
   def run_game(self):
     rooms = []
-    for i in range(self.num_rooms):
-      monster_name = input(f"Enter the name of monster for room {i+1}: ")
+    for room_number in range(1, self.num_rooms + 1):
+      monster_name = input(f"Enter the name of monster for room {room_number}: ")
       monster = Monster(monster_name)
-      room_name = f"Room_{i+1}"
+      room_name = f"Room_{room_number}"
       room = Room(room_name, monster)
       rooms.append(room)
 
@@ -50,7 +50,7 @@ class Game:
           self.room_manager.move_to_next_room()
       elif action == "e":
         current_room.escape_room(self.player)
-        print(" \n")
+        print()
       else:
         print("Invalid action! Please choose 'f' to fight or 'e' to escape.")
 
