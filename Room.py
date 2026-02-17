@@ -1,29 +1,72 @@
 class Room:
-  def __init__(self, name, monster):
-    self.name = name
-    self.monster = monster
+    """Represents a room in the dungeon containing a monster.
 
-  def get_status(self):
-    return f"Room: {self.name}, {self.monster.get_status()}"
-  
-  def fight_monster(self, player):
-    player.take_damage(self.monster.attack()) 
-    damage_dealt = player.attack() # den durch den Spieler verursachten Schaden speichern
-    self.monster.take_damage(damage_dealt)
-    if not self.monster.is_alive():
-      health_gained = int(damage_dealt/2) 
-      player.regain_health(health_gained)
-      print(f"{player.name} defeated the {self.monster.name} in room {self.name} and has now {player.health} health. \n")
-      print(f"{player.name} gained {health_gained} health.")
-      player.get_status()
-      return True
-    elif player.health > 0:
-      print(f"{player.name} is still alive. \n")
-      return False
-    else:
-      print(f"{player.name} failed to defeat the {self.monster.name} in room {self.name}.")
-      return False
-    
-  def escape_room(self, player):
-    player.take_damage(10)
-    print(f"{player.name} escaped from room {self.name} and took 10 damage. \n")
+    Attributes:
+        _name: Name of the room.
+        _monster: The monster inhabiting this room.
+    """
+
+    def __init__(self, name, monster):
+        self._name = name
+        self._monster = monster
+
+    @property
+    def name(self):
+        """Returns the room's name."""
+        return self._name
+
+    @property
+    def monster(self):
+        """Returns the monster in this room."""
+        return self._monster
+
+    def get_status(self):
+        """Returns a string describing the room and its monster."""
+        return f"Room: {self._name}, {self._monster.get_status()}"
+
+    def fight_monster(self, player):
+        """Executes one round of combat between the player and the monster.
+
+        The monster attacks first, then the player attacks. If the monster
+        is defeated, the player regains half of the damage dealt.
+
+        Args:
+            player: The Player instance fighting the monster.
+
+        Returns:
+            True if the monster is defeated, False otherwise.
+        """
+        player.take_damage(self._monster.attack())
+        damage_dealt = player.attack()
+        self._monster.take_damage(damage_dealt)
+        if not self._monster.is_alive():
+            health_gained = int(damage_dealt / 2)
+            player.regain_health(health_gained)
+            print(
+                f"{player.name} defeated the {self._monster.name} in room "
+                f"{self._name} and has now {player.health} health. \n"
+            )
+            print(f"{player.name} gained {health_gained} health.")
+            player.get_status()
+            return True
+        elif player.health > 0:
+            print(f"{player.name} is still alive. \n")
+            return False
+        else:
+            print(
+                f"{player.name} failed to defeat the "
+                f"{self._monster.name} in room {self._name}."
+            )
+            return False
+
+    def escape_room(self, player):
+        """Player escapes the room, taking 10 damage.
+
+        Args:
+            player: The Player instance escaping the room.
+        """
+        player.take_damage(10)
+        print(
+            f"{player.name} escaped from room {self._name} "
+            f"and took 10 damage. \n"
+        )

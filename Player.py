@@ -2,31 +2,64 @@ import random
 
 # Konstante Werte vom Player
 MAX_HEALTH = 100
-MIN_ATTACK_DAMAGE = 40
-MAX_ATTACK_DAMAGE = 80
+MIN_STRENGTH = 40
+MAX_STRENGTH = 80
+
 
 class Player:
-  def __init__(self, name, health=MAX_HEALTH):
-    self.name = name
-    self.health = health
+    """Represents the player in the dungeon game.
 
-  def __str__(self):
-    return f"Player {self.name} has {self.health} health."
-    
-  def take_damage(self, damage):
-    self.health -= damage
-    if self.health < 0:
-      self.health = 0
+    Attributes:
+        _name: Name of the player.
+        _health: Current health points of the player.
+        _strength: Strength of the player (determines attack damage).
+    """
 
-  # Zufälligen Wert für Attacken des Players
-  def attack(self):
-    random_attack = random.randint(MIN_ATTACK_DAMAGE, MAX_ATTACK_DAMAGE)
-    return random_attack
-  
-  def regain_health(self, health_regain):
-    self.health += health_regain
-    if self.health > MAX_HEALTH:
-      self.health = MAX_HEALTH
+    def __init__(self, name, health=MAX_HEALTH):
+        self._name = name
+        self._health = health
+        self._strength = random.randint(MIN_STRENGTH, MAX_STRENGTH)
 
-  def get_status(self):
-    return f"Player {self.name}, Health: {self.health}"
+    @property
+    def name(self):
+        """Returns the player's name."""
+        return self._name
+
+    @property
+    def health(self):
+        """Returns the player's current health."""
+        return self._health
+
+    @property
+    def strength(self):
+        """Returns the player's strength."""
+        return self._strength
+
+    def __str__(self):
+        return (
+            f"Player {self._name} has {self._strength} strength "
+            f"and {self._health} health."
+        )
+
+    def take_damage(self, damage):
+        """Reduces health by the given damage amount. Health cannot go below 0."""
+        self._health -= damage
+        if self._health < 0:
+            self._health = 0
+
+    def attack(self):
+        """Returns the player's strength as attack damage."""
+        return self._strength
+
+    def regain_health(self, health_regain):
+        """Increases health by the given amount. Health cannot exceed MAX_HEALTH."""
+        self._health += health_regain
+        if self._health > MAX_HEALTH:
+            self._health = MAX_HEALTH
+
+    def get_status(self):
+        """Returns a string describing the player's current status."""
+        return (
+            f"Player {self._name}, Health: {self._health}, "
+            f"Strength: {self._strength}"
+        )
