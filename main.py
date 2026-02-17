@@ -14,7 +14,7 @@ def ask_yes_no(prompt):
         print("Please enter 'y' or 'n'.")
 
 def main():
-    print("You are now playing the Dungeon Game \n")
+    print("You are now entering the Dungeon Game, stay alert!\n")
     
     while True:
         game = Game()
