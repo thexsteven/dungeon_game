@@ -1,9 +1,6 @@
 class Room:
-    """Represents a room in the dungeon containing a monster.
-
-    Attributes:
-        _name: Name of the room.
-        _monster: The monster inhabiting this room.
+    """
+    Represents a room in the dungeon containing a monster.
     """
 
     def __init__(self, name, monster):
@@ -12,16 +9,16 @@ class Room:
 
     @property
     def name(self):
-        """Returns the room's name."""
+        # Returns the room's name.
         return self._name
 
     @property
     def monster(self):
-        """Returns the monster in this room."""
+        # Returns the monster in this room.
         return self._monster
 
     def get_status(self):
-        """Returns a string describing the room and its monster."""
+        # Returns a string describing the room and its monster.
         return f"Room: {self._name}, {self._monster.get_status()}"
 
     def fight_monster(self, player):
@@ -29,9 +26,6 @@ class Room:
 
         The monster attacks first, then the player attacks. If the monster
         is defeated, the player regains half of the damage dealt.
-
-        Args:
-            player: The Player instance fighting the monster.
 
         Returns:
             True if the monster is defeated, False otherwise.
@@ -47,7 +41,7 @@ class Room:
                 f"{self._name} and has now {player.health} health. \n"
             )
             print(f"{player.name} gained {health_gained} health.")
-            player.get_status()
+            print(player.get_status())
             return True
         elif player.health > 0:
             print(f"{player.name} is still alive. \n")

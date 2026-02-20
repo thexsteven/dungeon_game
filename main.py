@@ -4,7 +4,7 @@ YES_ANSWERS = {"y", "yes"}
 NO_ANSWERS = {"n", "no"}
 
 def ask_yes_no(prompt):
-    """Fragt den Benutzer und akzeptiert nur y/yes/n/no."""
+    """Ask the user and only accept y/yes/n/no."""
     while True:
         answer = input(f"{prompt} (y/n): ").strip().lower()
         if answer in YES_ANSWERS:

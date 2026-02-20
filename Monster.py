@@ -8,12 +8,8 @@ MAX_MONSTER_STRENGTH = 40
 
 
 class Monster:
-    """Represents a monster in a dungeon room.
-
-    Attributes:
-        _name: Name of the monster.
-        _health: Current health points of the monster.
-        _strength: Strength of the monster (determines attack damage).
+    """
+    Represents a monster in a dungeon room.
     """
 
     def __init__(self, name):
@@ -23,25 +19,25 @@ class Monster:
 
     @property
     def name(self):
-        """Returns the monster's name."""
+        # Returns the monster's name.
         return self._name
 
     @property
     def health(self):
-        """Returns the monster's current health."""
+        # Returns the monster's current health.
         return self._health
 
     @property
     def strength(self):
-        """Returns the monster's strength."""
+        # Returns the monster's strength.
         return self._strength
 
     def attack(self):
-        """Returns the monster's strength as attack damage."""
+        # Returns the monster's strength as attack damage.
         return self._strength
 
     def take_damage(self, damage):
-        """Reduces health by the given damage amount. Health cannot go below 0."""
+        # Reduces health by the given damage amount. Health cannot go below 0.
         self._health -= damage
         if self._health < 0:
             self._health = 0
@@ -51,11 +47,11 @@ class Monster:
         )
 
     def is_alive(self):
-        """Returns True if the monster's health is above 0."""
+        # Returns True if the monster's health is above 0.
         return self._health > 0
 
     def get_status(self):
-        """Returns a string describing the monster's current status."""
+        # Returns a string describing the monster's current status.
         return (
             f"Monster: {self._name}, Health: {self._health}, "
             f"Strength: {self._strength}"

@@ -7,12 +7,8 @@ MIN_ROOMS = 1
 
 
 class Game:
-    """Main game class that orchestrates the dungeon game.
-
-    Attributes:
-        _player: The Player instance.
-        _room_manager: The RoomManager instance.
-        _num_rooms: Number of rooms in the dungeon.
+    """
+    Main game class that orchestrates the dungeon game.
     """
 
     def __init__(self):
@@ -21,7 +17,7 @@ class Game:
         self._num_rooms = 0
 
     def start(self):
-        """Initializes the game by getting player name and number of rooms."""
+        # Initializes the game by getting player name and number of rooms.
         player_name = input("Enter your player's name: ")
         print(f"Welcome {player_name}, to the Dungeon Game!")
 
@@ -41,7 +37,7 @@ class Game:
         self._num_rooms = num_rooms
 
     def run_game(self):
-        """Runs the main game loop through all rooms."""
+        # Runs the main game loop through all rooms.
         rooms = []
         for room_number in range(1, self._num_rooms + 1):
             monster_name = input(
