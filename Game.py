@@ -17,7 +17,7 @@ class Game:
         self._num_rooms = 0
 
     def start(self):
-        # Initializes the game by getting player name and number of rooms.
+        """Initializes the game by getting player name and number of rooms."""
         player_name = input("Enter your player's name: ")
         print(f"Welcome {player_name}, to the Dungeon Game!")
 
@@ -31,13 +31,13 @@ class Game:
                     continue
                 break
             except ValueError:
-                print("Please enter a valid number")
+                print("Please enter a valid number.")
 
         self._player = Player(player_name)
         self._num_rooms = num_rooms
 
     def run_game(self):
-        # Runs the main game loop through all rooms.
+        """Runs the main game loop through all rooms."""
         rooms = []
         for room_number in range(1, self._num_rooms + 1):
             monster_name = input(

@@ -1,86 +1,87 @@
 # README.md
 
-## Projektbeschreibung
+## Project Description
 
-Das ist ein textbasiertes Dungeon-Spiel für die Konsole. Der Spieler geht durch mehrere Räume und kämpft in jedem Raum gegen ein Monster. Man kann entweder kämpfen oder fliehen. Ziel ist es, alle Räume zu überleben ohne dass die Lebenspunkte auf 0 fallen.
+A text-based dungeon game for the console. The player navigates through multiple rooms and fights a monster in each room. You can either fight or flee. The goal is to survive all rooms without your health dropping to 0.
 
-## Installation und Ausführung
+## Installation and Setup
 
-**Voraussetzungen:**
+**Prerequisites:**
 
-- Python 3.x muss installiert sein
+- Python 3.x must be installed
 
-**Spiel starten:**
+**Start the game:**
 
 ```
 python main.py
 ```
 
-**Tests ausführen:**
+**Run tests:**
 
 ```
 python -m unittest discover -s tests -p "Test*.py" -v
 ```
 
-## Projektstruktur
+## Project Structure
 
 [**main.py**](main.py)
 
-Startpunkt des Programms. Hier wird das Spiel gestartet und die Wiederholungsschleife läuft.
+Entry point of the program. Starts the game and runs the replay loop.
 
 [**Game.py**](Game.py)
 
-Steuert den Spielablauf. Fragt Eingaben ab und koordiniert Player und RoomManager.
+Controls the game flow. Handles user input and coordinates Player and RoomManager.
 
 [**Player.py**](Player.py)
 
-Die Spieler-Klasse mit Health, Strength und Methoden wie attack(), take_damage(), regain_health().
+The player class with health, strength and methods like attack(), take_damage(), regain_health().
 
 [**Monster.py**](Monster.py)
 
-Die Monster-Klasse. Jedes Monster hat Health, Strength und kann angreifen.
+The monster class. Each monster has health, strength and can attack.
 
 [**RoomManager.py**](RoomManager.py)
 
-Verwaltet alle Räume und prüft ob das Spiel vorbei ist.
+Manages all rooms and checks whether the game is over.
 
 [**Room.py**](Room.py)
 
-Ein einzelner Raum mit einem Monster. Hier passiert der Kampf oder die Flucht.
+A single room containing a monster. Combat and escape happen here.
 
 **tests**
 
-- [tests/TestRoomManager.py](tests/TestRoomManager.py)
 - [tests/TestPlayer.py](tests/TestPlayer.py)
+- [tests/TestRoom.py](tests/TestRoom.py)
+- [tests/TestRoomManager.py](tests/TestRoomManager.py)
 
-Unit Tests für Player und RoomManager. Testen Initialisierung, Grenzwerte und Methoden.
+Unit tests for Player, Room and RoomManager. Testing initialization, edge cases and methods.
 
-## Bekannte Einschränkungen
+## Known Limitations
 
-**Eingabevalidierung:**
+**Input Validation:**
 
-Wenn man was anderes als "f" oder "e" eingibt, kommt nur eine Fehlermeldung. Das Spiel fragt dann nochmal.
+If you enter something other than "f" or "e", an error message is shown. The game then asks again.
 
-**Keine Speicherfunktion:**
+**No Save Feature:**
 
-Man kann den Spielstand nicht speichern. Wenn man abbricht, muss man von vorne anfangen.
+The game state cannot be saved. If you quit, you have to start over.
 
-**Feste Schadenwerte beim Fliehen:**
+**Fixed Escape Damage:**
 
-Beim Fliehen verliert man immer genau 10 Lebenspunkte, egal wie stark das Monster ist.
+When fleeing, you always lose exactly 10 health points, regardless of how strong the monster is.
 
-**Zufallswerte:**
+**Random Values:**
 
-Die Angriffswerte sind zufällig. Manchmal ist ein Kampf viel leichter oder schwerer, das hängt vom Glück ab.
+Attack values are random. Sometimes a fight is much easier or harder, depending on luck.
 
-**Interaktiver Spielablauf:**
+**Interactive Gameplay:**
 
-Die Anzahl der Räume ist beim Spielstart frei wählbar und wird per Konsoleingabe festgelegt.
+The number of rooms is freely selectable at the start and is set via console input.
 
-## Technische Hinweise
+## Technical Notes
 
-Das Projekt nutzt objektorientierte Programmierung mit mehreren Klassen. Jede Klasse hat ihre eigene Datei.
+The project uses object-oriented programming with multiple classes. Each class has its own file.
 
-Die Eingaben kommen über die Konsole mit input(). Der Spieler tippt "f" für Kampf oder "e" für Flucht.
+Input is handled via the console using input(). The player types "f" to fight or "e" to flee.
 
-Die Angriffs- und Lebenswerte werden beim Start mit Zufallszahlen generiert (random.randint). Das macht jedes Spiel ein bisschen anders.
+Attack and health values are generated at startup using random numbers (random.randint). This makes each game slightly different.
