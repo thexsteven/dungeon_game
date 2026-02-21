@@ -2,7 +2,7 @@
 
 ## Project Description
 
-A text-based dungeon game for the console. The player navigates through multiple rooms and fights a monster in each room. You can either fight or flee. The goal is to survive all rooms without your health dropping to 0.
+A text-based dungeon game for the console. The player navigates through multiple rooms and fights a monster in each room. You can either fight or escape. The goal is to survive all rooms without your health dropping to 0.
 
 ## Installation and Setup
 
